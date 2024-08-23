@@ -1,4 +1,3 @@
-
 const textArea = document.querySelector(".textarea");
 const mensaje = document.querySelector(".mensaje");
 const imageBg = document.querySelector(".resultbg");

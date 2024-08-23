@@ -29,10 +29,7 @@ body {
     background-color: var(--primary-color);
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
     text-wrap: pretty;
 }
 
@@ -40,7 +37,6 @@ h4 {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
@@ -50,18 +46,22 @@ h4 {
     from {
         opacity: 1;
     }
-
     to {
         opacity: 0;
     }
 }
 
 header img {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 40px;
     position: absolute;
-    top: 40px; /* Ajusta la posición vertical */
-    left: 40px; /* Ajusta la posición horizontal */
-    width: 120px; /* Establece el ancho */
-    height: 48px; /* Establece el alto */
+    width: 120px;
+    height: 48px;
+    left: 40px;
+    top: 40px;
 }
 
 main {
@@ -79,26 +79,22 @@ main {
 .container_warning {
     width: 575px;
     margin-left: 200px;
-    margin-bottom: 10px; /* Añade un margen inferior para separar el contenedor de los botones */
+    margin-bottom: 10px;
     text-align: left;
-    /* Alinea el texto dentro del contenedor a la izquierda */
 }
 
 .container_warning p {
-    display: flex; /* Usa flexbox para alinear los elementos */
-    align-items: center; /* Alinea verticalmente los elementos en el centro */
+    display: flex;
+    align-items: center;
     margin: 0;
-    /* Elimina cualquier margen interno en el párrafo */
     color: var(--text-terciary-color);
-    /* Aplica el color de texto */
     font-family: var(--font-TitleText);
-    /* Aplica la fuente */
 }
 
 .container_warning img {
-    margin-right: 8px; /* Ajusta este valor según la separación deseada */
-
+    margin-right: 8px;
 }
+
 .errorText {
     width: 340px;
     height: 50px;
@@ -138,7 +134,6 @@ main {
     color: var(--text-secondary-color);
 }
 
-
 .textarea {
     width: 575px;
     margin-top: 68px;
@@ -153,12 +148,11 @@ main {
     background-color: var(--primary-color);
     vertical-align: top;
     text-align: left;
-    /* padding: 10px; */ /* Añadido para mejorar el aspecto y la usabilidad */
-    color: var(--text-secondary-color); /* Asegúrate de que el color del texto sea visible */
+    color: var(--text-secondary-color);
 }
 
 .textarea::placeholder {
-    color: var(--text-terciary-color); /* Cambia esto al color que desees */
+    color: var(--text-terciary-color);
 }
 
 .container_btn {
@@ -206,42 +200,53 @@ main {
 }
 
 .result_container {
-    height: 92vh;
+    position: absolute;
+    width: 30vw;
+    height: 90vh;
+    left: calc(100vw - 30vw - 40px);
+    top: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     font-family: var(--font-TitleText);
     background-color: var(--secondary-color);
     border-radius: 32px;
     box-shadow: 5px 5px 20px 1px var(--text-primary-color);
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .result_container img {
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    height: auto;
+    max-height: 40%;
+    margin-top: 20px;
+    object-fit: contain;
 }
 
 .result_container h4 {
-    width: 80%;
+    width: 100%;
     text-align: center;
     font-family: var(--font-TitleText);
     font-size: var(--font-size-md);
+    font-weight: 600;
+    margin-top: 5px;
 }
 
 textarea {
     width: 100%;
-    height: 50vh;
-    text-wrap: balance;
+    height: auto;
+    margin-bottom: 50px;
     text-align: center;
     color: var(--text-primary-color);
     font-size: var(--font-size-md);
     font-family: var(--font-TitleText);
     background-color: var(--secondary-color);
-    cursor: default;
-    scrollbar-width: none;
-    border: #ecd8c6;
+    border: none;
     resize: none;
+    overflow: hidden;
     outline: none;
 }
 
@@ -257,7 +262,6 @@ textarea {
     height: 8vh;
     margin-top: 20px;
     margin-bottom: 20px;
-
     border-radius: 10px;
     border: none;
     background-color: var(--terciary-color);
@@ -265,6 +269,11 @@ textarea {
     font-size: var(--font-size-md);
     font-weight: 600;
     cursor: pointer;
+    display: none; /* Por defecto, el botón está oculto */
+}
+
+.copyBtn.show {
+    display: block; /* Muestra el botón cuando tiene la clase 'show' */
 }
 
 .copyBtn:hover {
@@ -279,25 +288,23 @@ textarea {
     transition: opacity 0.5s ease-in-out;
     align-items: center;
     justify-content: center;
-
     margin-top: 10px;
     color: var(--text-terciary-color);
     font-size: var(--font-size-sm);
     font-family: var(--font-TitleText);
     background-color: #239b56;
     border-radius: 10px;
+    width: 80%;
     box-shadow: 5px 5px 20px 1px var(--primary-color);
 }
 
 .alert.show {
     display: flex;
     animation: fadeIn 0.5s forwards;
-    /* Aplicar fade in */
 }
 
 .alert.hide {
     animation: fadeOut 0.5s forwards;
-    /* Aplicar fade out */
 }
 
 .alert img {
@@ -309,4 +316,104 @@ textarea {
 
 .hide {
     display: none;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .container_warning {
+        margin-left: 0;
+        width: 90%;
+    }
+
+    .principal_text {
+        width: 100%;
+    }
+
+    .principal_text input::placeholder {
+        font-size: var(--font-size-lx);
+        text-align: start;
+    }
+
+    .textarea {
+        height: 100px;
+    }
+
+    .container_btn button {
+        width: 45%;
+        height: 40px;
+    }
+
+    .container_btn p {
+        width: 88%;
+    }
+
+    .result_text {
+        width: 100%;
+        display: flex;
+    }
+
+    .result_container {
+        width: 80%;
+        height: 50vh;
+        margin-top: 20px;
+    }
+
+    .result_container textarea {
+        margin-top: 40px;
+    }
+
+    .result_container img {
+        display: none;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+    }
+}
+
+/* Mobile */
+@media (max-width: 483px) {
+    .errorText {
+        width: 80%;
+        height: 100px;
+    }
+
+    .principal_text input::placeholder {
+        width: 100%;
+        text-align: start;
+    }
+
+    .textarea {
+        width: 85%;
+        font-size: var(--font-size-sm);
+        color: var(--secondary-color);
+    }
+
+    .container_btn {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .container_btn button {
+        width: 90%;
+    }
+
+    .result_container {
+        margin-top: 40px;
+    }
+
+    .result_container textarea {
+        margin-top: 40px;
+    }
+
+    footer {
+        height: 30vh;
+    }
 }
