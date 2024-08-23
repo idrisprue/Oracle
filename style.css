@@ -1,0 +1,312 @@
+* {
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --primary-color: #393638;
+    --secondary-color: #f6f3e2;
+    --terciary-color: #7cc7ad;
+    --text-primary-color: #0f1211;
+    --text-secondary-color: #7cc7ad;
+    --text-terciary-color: #f6f3e2;
+    --font-size-lx: 28px;
+    --font-size-md: 20px;
+    --font-size-sm: 16px;
+    --font-TitleText: montserrat;
+}
+
+body {
+    min-height: 100dvh;
+    margin: 0;
+    background-color: var(--primary-color);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: pretty;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+header img {
+    position: absolute;
+    top: 40px; /* Ajusta la posición vertical */
+    left: 40px; /* Ajusta la posición horizontal */
+    width: 120px; /* Establece el ancho */
+    height: 48px; /* Establece el alto */
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.principal_text {
+    width: 100%;
+    height: 80vh;
+    text-align: center;
+}
+
+.container_warning {
+    width: 575px;
+    margin-left: 200px;
+    margin-bottom: 10px; /* Añade un margen inferior para separar el contenedor de los botones */
+    text-align: left;
+    /* Alinea el texto dentro del contenedor a la izquierda */
+}
+
+.container_warning p {
+    display: flex; /* Usa flexbox para alinear los elementos */
+    align-items: center; /* Alinea verticalmente los elementos en el centro */
+    margin: 0;
+    /* Elimina cualquier margen interno en el párrafo */
+    color: var(--text-terciary-color);
+    /* Aplica el color de texto */
+    font-family: var(--font-TitleText);
+    /* Aplica la fuente */
+}
+
+.container_warning img {
+    margin-right: 8px; /* Ajusta este valor según la separación deseada */
+
+}
+.errorText {
+    width: 340px;
+    height: 50px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-left: 200px;
+    color: var(--text-terciary-color);
+    font-size: 12px;
+    font-family: var(--font-TitleText);
+    background-color: #b0662e;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px 1px var(--text-primary-color);
+}
+
+.errorText h3 {
+    text-align: center;
+}
+
+.errorText img {
+    width: 40px;
+    height: 40px;
+}
+
+.principal_text input::placeholder {
+    width: 90%;
+    font-size: 1.5rem;
+    color: var(--text-terciary-color);
+    font-family: var(--font-TitleText);
+}
+
+.principal_text input:focus {
+    outline: none;
+}
+
+.principal_text input {
+    color: var(--text-secondary-color);
+}
+
+
+.textarea {
+    width: 575px;
+    margin-top: 68px;
+    margin-left: 240px;
+    height: 575px;
+    font-size: 24px;
+    box-sizing: border-box;
+    resize: none;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    background-color: var(--primary-color);
+    vertical-align: top;
+    text-align: left;
+    /* padding: 10px; */ /* Añadido para mejorar el aspecto y la usabilidad */
+    color: var(--text-secondary-color); /* Asegúrate de que el color del texto sea visible */
+}
+
+.textarea::placeholder {
+    color: var(--text-terciary-color); /* Cambia esto al color que desees */
+}
+
+.container_btn {
+    width: 1070px;
+    margin-top: -80px;
+}
+
+.container_btn p {
+    width: 100%;
+    font-size: var(--font-size-sm);
+    font-family: var(--font-TitleText);
+    color: var(--text-terciary-color);
+}
+
+.container_btn p img {
+    width: 20px;
+    height: 20px;
+}
+
+.container_btn button {
+    width: 328px;
+    height: 67px;
+    border-radius: 24px;
+    border: solid 0px;
+    margin: 8px;
+    font-family: var(--font-TitleText);
+    font-size: var(--font-size-md);
+    font-weight: 400;
+    color: var(--text-terciary-color);
+    background-color: var(--terciary-color);
+    cursor: pointer;
+    box-shadow: 5px 5px 20px 1px var(--text-primary-color);
+}
+
+.container_btn button:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-primary-color);
+}
+
+.result_text {
+    width: calc(40% + 60px);
+    height: calc(90vh - 40px);
+    display: flex;
+    justify-content: center;
+}
+
+.result_container {
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-TitleText);
+    background-color: var(--secondary-color);
+    border-radius: 32px;
+    box-shadow: 5px 5px 20px 1px var(--text-primary-color);
+}
+
+.result_container img {
+    width: 250px;
+    height: 250px;
+}
+
+.result_container h4 {
+    width: 80%;
+    text-align: center;
+    font-family: var(--font-TitleText);
+    font-size: var(--font-size-md);
+}
+
+textarea {
+    width: 100%;
+    height: 50vh;
+    text-wrap: balance;
+    text-align: center;
+    color: var(--text-primary-color);
+    font-size: var(--font-size-md);
+    font-family: var(--font-TitleText);
+    background-color: var(--secondary-color);
+    cursor: default;
+    scrollbar-width: none;
+    border: #ecd8c6;
+    resize: none;
+    outline: none;
+}
+
+.container_copybtn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.copyBtn {
+    width: 80%;
+    height: 8vh;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    border-radius: 10px;
+    border: none;
+    background-color: var(--terciary-color);
+    color: var(--text-terciary-color);
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.copyBtn:hover {
+    background-color: var(--primary-color);
+}
+
+.alert {
+    width: 80%;
+    height: 50px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 10px;
+    color: var(--text-terciary-color);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-TitleText);
+    background-color: #239b56;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px 1px var(--primary-color);
+}
+
+.alert.show {
+    display: flex;
+    animation: fadeIn 0.5s forwards;
+    /* Aplicar fade in */
+}
+
+.alert.hide {
+    animation: fadeOut 0.5s forwards;
+    /* Aplicar fade out */
+}
+
+.alert img {
+    width: 30px;
+    height: 25px;
+    opacity: 0.5;
+    border-radius: 50px;
+}
+
+.hide {
+    display: none;
+}
