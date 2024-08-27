@@ -2,10 +2,15 @@ const textArea = document.querySelector(".textarea");
 const mensaje = document.querySelector(".mensaje");
 const imageBg = document.querySelector(".resultbg");
 const titleMesaje = document.querySelector(".title_result");
-document.querySelector("#copy").addEventListener("click", copy);
+const copyButton = document.querySelector(".copyBtn");
 const alerta = document.querySelector(".alert");
 const caracteresValidos = /^[a-z\s]*$/;
 const errorAlerta = document.querySelector(".errorText");
+
+// Añadir eventos a los botones de encriptar y desencriptar
+document.querySelector("#encriptar").addEventListener("click", btnEncriptar);
+document.querySelector("#desencriptar").addEventListener("click", btnDesencriptar);
+document.querySelector("#copy").addEventListener("click", copy);
 
 function btnEncriptar() {
   const textoOriginal = textArea.value;
@@ -18,9 +23,12 @@ function btnEncriptar() {
   const textoEncriptado = encriptar(textoOriginal);
   mensaje.value = textoEncriptado;
   textArea.value = "";
-  imageBg.remove();
-  titleMesaje.remove();
+  imageBg.style.display = "none"; // Cambié a display en lugar de remove para no eliminar el elemento
+  titleMesaje.style.display = "none"; // Cambié a display en lugar de remove para no eliminar el elemento
   errorAlerta.style.display = "none";
+
+  // Mostrar el botón de copiar cuando hay texto encriptado
+  copyButton.style.display = 'block';
 
   return true;
 }
@@ -51,9 +59,11 @@ function btnDesencriptar() {
   const textoEncriptado = desencriptar(textArea.value);
   mensaje.value = textoEncriptado;
   textArea.value = "";
-  imageBg.remove();
-  titleMesaje.remove();
-  contenedor.appendChild(boton);
+  imageBg.style.display = "none"; // Cambié a display en lugar de remove para no eliminar el elemento
+  titleMesaje.style.display = "none"; // Cambié a display en lugar de remove para no eliminar el elemento
+
+  // Mostrar el botón de copiar cuando hay texto desencriptado
+  copyButton.style.display = 'block';
 }
 
 function desencriptar(stringDesencriptada) {
@@ -68,7 +78,7 @@ function desencriptar(stringDesencriptada) {
   stringDesencriptada = stringDesencriptada.toLowerCase();
 
   for (let i = 0; i < matrizCodigo.length; i++) {
-    if (stringDesencriptada.includes(matrizCodigo[i][0])) {
+    if (stringDesencriptada.includes(matrizCodigo[i][1])) {
       stringDesencriptada = stringDesencriptada.replaceAll(
         matrizCodigo[i][1],
         matrizCodigo[i][0]
@@ -79,7 +89,7 @@ function desencriptar(stringDesencriptada) {
 }
 
 function copy() {
-  let copyText = document.querySelector("#textdecrypt");
+  const copyText = mensaje; // Usa el textarea de mensaje para copiar el texto encriptado/desencriptado
   copyText.select();
   document.execCommand("copy");
   alerta.style.display = "flex";

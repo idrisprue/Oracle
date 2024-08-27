@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="icon" href="/favicon/logo_alura.ico" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
     <title>Encriptador de Texto</title>
 </head>
 
@@ -29,8 +30,8 @@
                         Solo letras minúsculas y sin acento
                     </p>
                 </div>
-                <button class="btn_encrypt" onclick="btnEncriptar()">Encriptar</button>
-                <button class="btn_decrypt" onclick="btnDesencriptar()">Desencriptar</button>
+                <button class="btn_encrypt" id="encriptar">Encriptar</button>
+                <button class="btn_decrypt" id="desencriptar">Desencriptar</button>
             </div>
         </section>
 
@@ -44,43 +45,14 @@ Ingresa el texto que deseas encriptar o desencriptar
                 <div class="container_copybtn">
                     <button class="copyBtn hide" id="copy">Copiar</button>
                     <div class="alert" id="activeAlert">
-                        <img src="images/done.svg" />
-                        <h3>¡Copiado con Éxito!</h3>
+                        <h3>¡Copiado con éxito!</h3>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const textarea = document.querySelector('.textarea');
-        const copyBtn = document.querySelector('.copyBtn');
-        const resultText = document.querySelector('.mensaje');
-
-        function toggleCopyButton() {
-            if (resultText.value.trim() === '') {
-                copyBtn.classList.add('hide');
-            } else {
-                copyBtn.classList.remove('hide');
-            }
-        }
-
-        toggleCopyButton();
-
-        resultText.addEventListener('input', toggleCopyButton);
-
-        copyBtn.addEventListener('click', () => {
-            resultText.select();
-            document.execCommand('copy');
-            const alert = document.querySelector('.alert');
-            alert.classList.add('show');
-            setTimeout(() => {
-                alert.classList.remove('show');
-            }, 2000);
-        });
-    });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
