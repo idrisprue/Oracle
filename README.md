@@ -46,7 +46,6 @@ The ***Text Encryptor*** is a simple web application designed to encrypt and dec
   
 ## Usage Instructions
 
-To be updated once the whole code and the Github Page is set up
 
 ## Technologies Used
 
